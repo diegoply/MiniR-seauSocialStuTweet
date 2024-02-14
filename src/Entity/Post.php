@@ -12,18 +12,21 @@ class Post
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: "AUTO")]
-    #[ORM\Column(type: "integer")]
+    #[ORM\Column]
     private ?int $id;
 
-    #[ORM\Column(type: "string",length: 255, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $title = null;
 
-    #[ORM\Column(type: "text",length: 255)]
+    #[ORM\Column(length: 255)]
     private ?string $content;
 
     
-    #[ORM\Column(type: "text")]
+    #[ORM\Column(length: 600)]
     private ?string $image = null;
+
+    /* #[ORM\Column(targetEntity: "App\Entity\User", inversedBy: "posts")]
+    private $user; */
 
     public function getId(): ?int
     {

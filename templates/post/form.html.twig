@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+<div class="container col-6">
     {{ form_start(post_form)}}
 
         {{ form_row(post_form.title) }}
@@ -8,6 +9,6 @@
         {{ form_row(post_form.image) }}
 
         <input class="btn btn-primary" type="submit" value="Publier">
-
+</div>
     {{ form_end(post_form)}}
  {% endblock %}
