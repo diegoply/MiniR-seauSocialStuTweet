@@ -4,22 +4,25 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
+#[ORM\Table(name: "post")]
 class Post
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\GeneratedValue(strategy: "AUTO")]
+    #[ORM\Column(type: "integer")]
     private ?int $id;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "string",length: 255, nullable: true)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "text",length: 255)]
     private ?string $content;
 
-    #[ORM\Column(length: 1000)]
+    
+    #[ORM\Column(type: "text")]
     private ?string $image = null;
 
     public function getId(): ?int
