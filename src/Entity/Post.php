@@ -22,7 +22,7 @@ class Post
     private ?string $content;
 
     
-    #[ORM\Column(length: 600)]
+    #[ORM\Column(length: 600, nullable: true)]
     private ?string $image = null;
 
     /* #[ORM\Column(targetEntity: "App\Entity\User", inversedBy: "posts")]
