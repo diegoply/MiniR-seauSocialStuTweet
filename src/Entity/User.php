@@ -35,10 +35,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     private $passwordHasher;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    public function __construct()
+    {
+       
+        $this->posts = new ArrayCollection();
+    }
+
+    public function setPasswordHasher(UserPasswordHasherInterface $passwordHasher): void
     {
         $this->passwordHasher = $passwordHasher;
-        $this->posts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,7 +102,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setPassword(string $password): static
     {
-        $this->password = $password;
+        if ($this->passwordHasher) {
+            $this->password = $this->passwordHasher->hashPassword($this, $password);
+        } else {
+            $this->password = $password;
+        }
 
         return $this;
     }

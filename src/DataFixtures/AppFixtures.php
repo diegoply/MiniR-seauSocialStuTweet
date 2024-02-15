@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
             ->setPassword($this->passwordHasher->hashPassword($user, '123'));
 
       
-        // $product = new Product();
+     
         $manager->persist($user);
 
         $manager->flush();
