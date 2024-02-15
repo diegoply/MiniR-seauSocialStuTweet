@@ -21,16 +21,15 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
 
-        $user = new User();
-
-        
-
-        $user->setUsername("NotChris")
-            ->setPassword($this->passwordHasher->hashPassword($user, '123'));
-
-      
-     
-        $manager->persist($user);
+        $chris = new User();
+        $chris->setUsername("NotChris")
+            ->setPassword($this->passwordHasher->hashPassword($chris, '123'));
+        $manager->persist($chris);
+ 
+        $jonathan = new User();
+        $jonathan->setUsername("NotJonathan")
+            ->setPassword($this->passwordHasher->hashPassword($jonathan, '123456'));
+        $manager->persist($jonathan);
 
         $manager->flush();
     }
