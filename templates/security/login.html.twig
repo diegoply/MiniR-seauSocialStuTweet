@@ -1,7 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
 
 {% block body %}
+
+    {% if error %}
+    <div class="alert alert-danger">
+    {{ error.messageKey }}
+    </div>
+    {% endif %}
+
+    <form class="container" method="post">
+    <label for="username"></label>
+
+    </form>
 
 {% endblock %}
