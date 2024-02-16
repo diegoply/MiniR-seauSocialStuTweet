@@ -25,8 +25,8 @@ class Post
     #[ORM\Column(length: 600, nullable: true)]
     private ?string $image = null;
 
-    /* #[ORM\Column(targetEntity: "App\Entity\User", inversedBy: "posts")]
-    private $user; */
+     #[ORM\ManyToOne(targetEntity: "App\Entity\User", inversedBy: "posts")]
+    private $user;
 
     public function getId(): ?int
     {
@@ -71,6 +71,26 @@ class Post
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user)
+    {
+        $this->user = $user;
 
         return $this;
     }

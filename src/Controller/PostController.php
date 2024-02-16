@@ -33,6 +33,8 @@ class PostController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid())
         {
+            $post->setUser($this->getUser());
+
             $em = $doctrine->getManager();
             $em->persist($post);
             $em->flush();
