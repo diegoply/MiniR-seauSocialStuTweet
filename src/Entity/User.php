@@ -31,6 +31,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\OneToMany(targetEntity: "App\Entity\Post", mappedBy: "user")]
+    #[ORM\JoinColumn(name:"user_id", referencedColumnName:"id", onDelete:"CASCADE")]
     private $posts;
 
     private $passwordHasher;

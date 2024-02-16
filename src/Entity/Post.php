@@ -26,6 +26,7 @@ class Post
     private ?string $image = null;
 
      #[ORM\ManyToOne(targetEntity: "App\Entity\User", inversedBy: "posts")]
+
     private $user;
 
     public function getId(): ?int
