@@ -29,9 +29,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Accueil</a>
         </li>
+        {% if app.user %}
         <li class="nav-item">
           <a class="nav-link" href="/post/new">Publier</a>
         </li>
+        {% endif %}
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
@@ -50,7 +52,7 @@
         {% endblock %}
 
 
-<div class="container">
+<div class="container col-6">
         {% block body %}{% endblock %}
 </div>
     </body>

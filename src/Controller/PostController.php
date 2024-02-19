@@ -41,8 +41,8 @@ class PostController extends AbstractController
 
             return $this->redirectToRoute("home");
         }
-        return $this->render('post/form.html.twig', [
-           "post_form" => $form->createView()
+        return $this->render('user/form.html.twig', [
+           "form" => $form->createView()
         ]);
     }
 
